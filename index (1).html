@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lang.css">
+</head>
+<body>
+  <!-- Search Bar, Mode Toggle and Language Toggle -->
+  <div class="search-container">
+    <div class="search-controls">
+      <input type="text" id="element-search" class="search-box" placeholder="SEARCH BY NAME..." dir="auto" autocomplete="off">
+      <div class="search-toggle">
+        <button type="button" class="toggle-btn active" data-mode="name" data-i18n="name">NAME</button>
+        <button type="button" class="toggle-btn" data-mode="symbol" data-i18n="symbol">SYMBOL</button>
+      </div>
+      <div class="search-toggle">
+        <button type="button" class="lang-opt active" data-lang="en">EN</button>
+        <button type="button" class="lang-opt" data-lang="ar">عربي</button>
+      </div>
+    </div>
+    <div id="search-no-results" class="no-results-notice" data-i18n="noResults">No results found (T_T)</div>
+  </div>
+
+<table border="1">
+  <!-- Period 1 -->
+  <tr>
+    <td class="reactive-nonmetal"><span class="num">1</span><br><strong>H</strong><br><small class="name">Hydrogen</small><br><span class="mass">1.01</span></td>
+    <td colspan="16" class="empty"></td>
+    <td class="noble-gas"><span class="num">2</span><br><strong>He</strong><br><small class="name">Helium</small><br><span class="mass">4.00</span></td>
+  </tr>
+  <!-- Period 2 -->
+  <tr>
+    <td class="alkali"><span class="num">3</span><br><strong>Li</strong><br><small class="name">Lithium</small><br><span class="mass">6.94</span></td>
+    <td class="alkaline"><span class="num">4</span><br><strong>Be</strong><br><small class="name">Beryllium</small><br><span class="mass">9.01</span></td>
+    <td colspan="10" class="empty"></td>
+    <td class="metalloid"><span class="num">5</span><br><strong>B</strong><br><small class="name">Boron</small><br><span class="mass">10.81</span></td>
+    <td class="reactive-nonmetal"><span class="num">6</span><br><strong>C</strong><br><small class="name">Carbon</small><br><span class="mass">12.01</span></td>
+    <td class="reactive-nonmetal"><span class="num">7</span><br><strong>N</strong><br><small class="name">Nitrogen</small><br><span class="mass">14.01</span></td>
+    <td class="reactive-nonmetal"><span class="num">8</span><br><strong>O</strong><br><small class="name">Oxygen</small><br><span class="mass">16.00</span></td>
+    <td class="reactive-nonmetal"><span class="num">9</span><br><strong>F</strong><br><small class="name">Fluorine</small><br><span class="mass">19.00</span></td>
+    <td class="noble-gas"><span class="num">10</span><br><strong>Ne</strong><br><small class="name">Neon</small><br><span class="mass">20.18</span></td>
+  </tr>
+  <!-- Period 3 -->
+  <tr>
+    <td class="alkali"><span class="num">11</span><br><strong>Na</strong><br><small class="name">Sodium</small><br><span class="mass">22.99</span></td>
+    <td class="alkaline"><span class="num">12</span><br><strong>Mg</strong><br><small class="name">Magnesium</small><br><span class="mass">24.31</span></td>
+    <td colspan="10" class="empty"></td>
+    <td class="post-transition"><span class="num">13</span><br><strong>Al</strong><br><small class="name">Aluminium</small><br><span class="mass">26.98</span></td>
+    <td class="metalloid"><span class="num">14</span><br><strong>Si</strong><br><small class="name">Silicon</small><br><span class="mass">28.09</span></td>
+    <td class="reactive-nonmetal"><span class="num">15</span><br><strong>P</strong><br><small class="name">Phosphorus</small><br><span class="mass">30.97</span></td>
+    <td class="reactive-nonmetal"><span class="num">16</span><br><strong>S</strong><br><small class="name">Sulfur</small><br><span class="mass">32.06</span></td>
+    <td class="reactive-nonmetal"><span class="num">17</span><br><strong>Cl</strong><br><small class="name">Chlorine</small><br><span class="mass">35.45</span></td>
+    <td class="noble-gas"><span class="num">18</span><br><strong>Ar</strong><br><small class="name">Argon</small><br><span class="mass">39.95</span></td>
+  </tr>
+  <!-- Period 4 -->
+  <tr>
+    <td class="alkali"><span class="num">19</span><br><strong>K</strong><br><small class="name">Potassium</small><br><span class="mass">39.10</span></td>
+    <td class="alkaline"><span class="num">20</span><br><strong>Ca</strong><br><small class="name">Calcium</small><br><span class="mass">40.08</span></td>
+    <td class="transition"><span class="num">21</span><br><strong>Sc</strong><br><small class="name">Scandium</small><br><span class="mass">44.96</span></td>
+    <td class="transition"><span class="num">22</span><br><strong>Ti</strong><br><small class="name">Titanium</small><br><span class="mass">47.87</span></td>
+    <td class="transition"><span class="num">23</span><br><strong>V</strong><br><small class="name">Vanadium</small><br><span class="mass">50.94</span></td>
+    <td class="transition"><span class="num">24</span><br><strong>Cr</strong><br><small class="name">Chromium</small><br><span class="mass">52.00</span></td>
+    <td class="transition"><span class="num">25</span><br><strong>Mn</strong><br><small class="name">Manganese</small><br><span class="mass">54.94</span></td>
+    <td class="transition"><span class="num">26</span><br><strong>Fe</strong><br><small class="name">Iron</small><br><span class="mass">55.85</span></td>
+    <td class="transition"><span class="num">27</span><br><strong>Co</strong><br><small class="name">Cobalt</small><br><span class="mass">58.93</span></td>
+    <td class="transition"><span class="num">28</span><br><strong>Ni</strong><br><small class="name">Nickel</small><br><span class="mass">58.69</span></td>
+    <td class="transition"><span class="num">29</span><br><strong>Cu</strong><br><small class="name">Copper</small><br><span class="mass">63.55</span></td>
+    <td class="transition"><span class="num">30</span><br><strong>Zn</strong><br><small class="name">Zinc</small><br><span class="mass">65.38</span></td>
+    <td class="post-transition"><span class="num">31</span><br><strong>Ga</strong><br><small class="name">Gallium</small><br><span class="mass">69.72</span></td>
+    <td class="metalloid"><span class="num">32</span><br><strong>Ge</strong><br><small class="name">Germanium</small><br><span class="mass">72.63</span></td>
+    <td class="metalloid"><span class="num">33</span><br><strong>As</strong><br><small class="name">Arsenic</small><br><span class="mass">74.92</span></td>
+    <td class="reactive-nonmetal"><span class="num">34</span><br><strong>Se</strong><br><small class="name">Selenium</small><br><span class="mass">78.97</span></td>
+    <td class="reactive-nonmetal"><span class="num">35</span><br><strong>Br</strong><br><small class="name">Bromine</small><br><span class="mass">79.90</span></td>
+    <td class="noble-gas"><span class="num">36</span><br><strong>Kr</strong><br><small class="name">Krypton</small><br><span class="mass">83.80</span></td>
+  </tr>
+  <!-- Period 5 -->
+  <tr>
+    <td class="alkali"><span class="num">37</span><br><strong>Rb</strong><br><small class="name">Rubidium</small><br><span class="mass">85.47</span></td>
+    <td class="alkaline"><span class="num">38</span><br><strong>Sr</strong><br><small class="name">Strontium</small><br><span class="mass">87.62</span></td>
+    <td class="transition"><span class="num">39</span><br><strong>Y</strong><br><small class="name">Yttrium</small><br><span class="mass">88.91</span></td>
+    <td class="transition"><span class="num">40</span><br><strong>Zr</strong><br><small class="name">Zirconium</small><br><span class="mass">91.22</span></td>
+    <td class="transition"><span class="num">41</span><br><strong>Nb</strong><br><small class="name">Niobium</small><br><span class="mass">92.91</span></td>
+    <td class="transition"><span class="num">42</span><br><strong>Mo</strong><br><small class="name">Molybdenum</small><br><span class="mass">95.95</span></td>
+    <td class="transition"><span class="num">43</span><br><strong>Tc</strong><br><small class="name">Technetium</small><br><span class="mass">(98)</span></td>
+    <td class="transition"><span class="num">44</span><br><strong>Ru</strong><br><small class="name">Ruthenium</small><br><span class="mass">101.07</span></td>
+    <td class="transition"><span class="num">45</span><br><strong>Rh</strong><br><small class="name">Rhodium</small><br><span class="mass">102.91</span></td>
+    <td class="transition"><span class="num">46</span><br><strong>Pd</strong><br><small class="name">Palladium</small><br><span class="mass">106.42</span></td>
+    <td class="transition"><span class="num">47</span><br><strong>Ag</strong><br><small class="name">Silver</small><br><span class="mass">107.87</span></td>
+    <td class="transition"><span class="num">48</span><br><strong>Cd</strong><br><small class="name">Cadmium</small><br><span class="mass">112.41</span></td>
+    <td class="post-transition"><span class="num">49</span><br><strong>In</strong><br><small class="name">Indium</small><br><span class="mass">114.82</span></td>
+    <td class="post-transition"><span class="num">50</span><br><strong>Sn</strong><br><small class="name">Tin</small><br><span class="mass">118.71</span></td>
+    <td class="metalloid"><span class="num">51</span><br><strong>Sb</strong><br><small class="name">Antimony</small><br><span class="mass">121.76</span></td>
+    <td class="metalloid"><span class="num">52</span><br><strong>Te</strong><br><small class="name">Tellurium</small><br><span class="mass">127.60</span></td>
+    <td class="reactive-nonmetal"><span class="num">53</span><br><strong>I</strong><br><small class="name">Iodine</small><br><span class="mass">126.90</span></td>
+    <td class="noble-gas"><span class="num">54</span><br><strong>Xe</strong><br><small class="name">Xenon</small><br><span class="mass">131.29</span></td>
+  </tr>
+  <!-- Period 6 -->
+  <tr>
+    <td class="alkali"><span class="num">55</span><br><strong>Cs</strong><br><small class="name">Caesium</small><br><span class="mass">132.91</span></td>
+    <td class="alkaline"><span class="num">56</span><br><strong>Ba</strong><br><small class="name">Barium</small><br><span class="mass">137.33</span></td>
+    <td class="lanthanoid"><span class="num">57-71</span><br><strong>*</strong><br><small class="name">Lanthanoids</small><br><span class="mass"></span></td>
+    <td class="transition"><span class="num">72</span><br><strong>Hf</strong><br><small class="name">Hafnium</small><br><span class="mass">178.49</span></td>
+    <td class="transition"><span class="num">73</span><br><strong>Ta</strong><br><small class="name">Tantalum</small><br><span class="mass">180.95</span></td>
+    <td class="transition"><span class="num">74</span><br><strong>W</strong><br><small class="name">Tungsten</small><br><span class="mass">183.84</span></td>
+    <td class="transition"><span class="num">75</span><br><strong>Re</strong><br><small class="name">Rhenium</small><br><span class="mass">186.21</span></td>
+    <td class="transition"><span class="num">76</span><br><strong>Os</strong><br><small class="name">Osmium</small><br><span class="mass">190.23</span></td>
+    <td class="transition"><span class="num">77</span><br><strong>Ir</strong><br><small class="name">Iridium</small><br><span class="mass">192.22</span></td>
+    <td class="transition"><span class="num">78</span><br><strong>Pt</strong><br><small class="name">Platinum</small><br><span class="mass">195.08</span></td>
+    <td class="transition"><span class="num">79</span><br><strong>Au</strong><br><small class="name">Gold</small><br><span class="mass">196.97</span></td>
+    <td class="transition"><span class="num">80</span><br><strong>Hg</strong><br><small class="name">Mercury</small><br><span class="mass">200.59</span></td>
+    <td class="post-transition"><span class="num">81</span><br><strong>Tl</strong><br><small class="name">Thallium</small><br><span class="mass">204.38</span></td>
+    <td class="post-transition"><span class="num">82</span><br><strong>Pb</strong><br><small class="name">Lead</small><br><span class="mass">207.2</span></td>
+    <td class="post-transition"><span class="num">83</span><br><strong>Bi</strong><br><small class="name">Bismuth</small><br><span class="mass">208.98</span></td>
+    <td class="post-transition"><span class="num">84</span><br><strong>Po</strong><br><small class="name">Polonium</small><br><span class="mass">(209)</span></td>
+    <td class="reactive-nonmetal"><span class="num">85</span><br><strong>At</strong><br><small class="name">Astatine</small><br><span class="mass">(210)</span></td>
+    <td class="noble-gas"><span class="num">86</span><br><strong>Rn</strong><br><small class="name">Radon</small><br><span class="mass">(222)</span></td>
+  </tr>
+  <!-- Period 7 -->
+  <tr>
+    <td class="alkali"><span class="num">87</span><br><strong>Fr</strong><br><small class="name">Francium</small><br><span class="mass">(223)</span></td>
+    <td class="alkaline"><span class="num">88</span><br><strong>Ra</strong><br><small class="name">Radium</small><br><span class="mass">(226)</span></td>
+    <td class="actinoid"><span class="num">89-103</span><br><strong>**</strong><br><small class="name">Actinoids</small><br><span class="mass"></span></td>
+    <td class="transition"><span class="num">104</span><br><strong>Rf</strong><br><small class="name">Rutherfordium</small><br><span class="mass">(267)</span></td>
+    <td class="transition"><span class="num">105</span><br><strong>Db</strong><br><small class="name">Dubnium</small><br><span class="mass">(268)</span></td>
+    <td class="transition"><span class="num">106</span><br><strong>Sg</strong><br><small class="name">Seaborgium</small><br><span class="mass">(269)</span></td>
+    <td class="transition"><span class="num">107</span><br><strong>Bh</strong><br><small class="name">Bohrium</small><br><span class="mass">(270)</span></td>
+    <td class="transition"><span class="num">108</span><br><strong>Hs</strong><br><small class="name">Hassium</small><br><span class="mass">(270)</span></td>
+    <td class="transition"><span class="num">109</span><br><strong>Mt</strong><br><small class="name">Meitnerium</small><br><span class="mass">(278)</span></td>
+    <td class="transition"><span class="num">110</span><br><strong>Ds</strong><br><small class="name">Darmstadtium</small><br><span class="mass">(281)</span></td>
+    <td class="transition"><span class="num">111</span><br><strong>Rg</strong><br><small class="name">Roentgenium</small><br><span class="mass">(282)</span></td>
+    <td class="transition"><span class="num">112</span><br><strong>Cn</strong><br><small class="name">Copernicium</small><br><span class="mass">(285)</span></td>
+    <td class="post-transition"><span class="num">113</span><br><strong>Nh</strong><br><small class="name">Nihonium</small><br><span class="mass">(286)</span></td>
+    <td class="post-transition"><span class="num">114</span><br><strong>Fl</strong><br><small class="name">Flerovium</small><br><span class="mass">(289)</span></td>
+    <td class="post-transition"><span class="num">115</span><br><strong>Mc</strong><br><small class="name">Moscovium</small><br><span class="mass">(290)</span></td>
+    <td class="post-transition"><span class="num">116</span><br><strong>Lv</strong><br><small class="name">Livermorium</small><br><span class="mass">(293)</span></td>
+    <td class="reactive-nonmetal"><span class="num">117</span><br><strong>Ts</strong><br><small class="name">Tennessine</small><br><span class="mass">(294)</span></td>
+    <td class="noble-gas"><span class="num">118</span><br><strong>Og</strong><br><small class="name">Oganesson</small><br><span class="mass">(294)</span></td>
+  </tr>
+  <!-- Spacer Row -->
+  <tr>
+    <td colspan="18" class="spacer"></td>
+  </tr>
+
+  <!-- Lanthanoids Series -->
+  <tr>
+    <td colspan="2" class="empty"></td>
+    <td class="lanthanoid"><span class="num"></span><br><strong>*</strong><br><small class="name"></small></td>
+    <td class="lanthanoid"><span class="num">57</span><br><strong>La</strong><br><small class="name">Lanthanum</small><br><span class="mass">138.91</span></td>
+    <td class="lanthanoid"><span class="num">58</span><br><strong>Ce</strong><br><small class="name">Cerium</small><br><span class="mass">140.12</span></td>
+    <td class="lanthanoid"><span class="num">59</span><br><strong>Pr</strong><br><small class="name">Praseodymium</small><br><span class="mass">140.91</span></td>
+    <td class="lanthanoid"><span class="num">60</span><br><strong>Nd</strong><br><small class="name">Neodymium</small><br><span class="mass">144.24</span></td>
+    <td class="lanthanoid"><span class="num">61</span><br><strong>Pm</strong><br><small class="name">Promethium</small><br><span class="mass">(145)</span></td>
+    <td class="lanthanoid"><span class="num">62</span><br><strong>Sm</strong><br><small class="name">Samarium</small><br><span class="mass">150.36</span></td>
+    <td class="lanthanoid"><span class="num">63</span><br><strong>Eu</strong><br><small class="name">Europium</small><br><span class="mass">151.96</span></td>
+    <td class="lanthanoid"><span class="num">64</span><br><strong>Gd</strong><br><small class="name">Gadolinium</small><br><span class="mass">157.25</span></td>
+    <td class="lanthanoid"><span class="num">65</span><br><strong>Tb</strong><br><small class="name">Terbium</small><br><span class="mass">158.93</span></td>
+    <td class="lanthanoid"><span class="num">66</span><br><strong>Dy</strong><br><small class="name">Dysprosium</small><br><span class="mass">162.50</span></td>
+    <td class="lanthanoid"><span class="num">67</span><br><strong>Ho</strong><br><small class="name">Holmium</small><br><span class="mass">164.93</span></td>
+    <td class="lanthanoid"><span class="num">68</span><br><strong>Er</strong><br><small class="name">Erbium</small><br><span class="mass">167.26</span></td>
+    <td class="lanthanoid"><span class="num">69</span><br><strong>Tm</strong><br><small class="name">Thulium</small><br><span class="mass">168.93</span></td>
+    <td class="lanthanoid"><span class="num">70</span><br><strong>Yb</strong><br><small class="name">Ytterbium</small><br><span class="mass">173.05</span></td>
+    <td class="lanthanoid"><span class="num">71</span><br><strong>Lu</strong><br><small class="name">Lutetium</small><br><span class="mass">174.97</span></td>
+  </tr>
+  <!-- Actinoids Series -->
+  <tr>
+    <td colspan="2" class="empty"></td>
+    <td class="actinoid"><span class="num"></span><br><strong>**</strong><br><small class="name"></small></td>
+    <td class="actinoid"><span class="num">89</span><br><strong>Ac</strong><br><small class="name">Actinium</small><br><span class="mass">(227)</span></td>
+    <td class="actinoid"><span class="num">90</span><br><strong>Th</strong><br><small class="name">Thorium</small><br><span class="mass">232.04</span></td>
+    <td class="actinoid"><span class="num">91</span><br><strong>Pa</strong><br><small class="name">Protactinium</small><br><span class="mass">231.04</span></td>
+    <td class="actinoid"><span class="num">92</span><br><strong>U</strong><br><small class="name">Uranium</small><br><span class="mass">238.03</span></td>
+    <td class="actinoid"><span class="num">93</span><br><strong>Np</strong><br><small class="name">Neptunium</small><br><span class="mass">(237)</span></td>
+    <td class="actinoid"><span class="num">94</span><br><strong>Pu</strong><br><small class="name">Plutonium</small><br><span class="mass">(244)</span></td>
+    <td class="actinoid"><span class="num">95</span><br><strong>Am</strong><br><small class="name">Americium</small><br><span class="mass">(243)</span></td>
+    <td class="actinoid"><span class="num">96</span><br><strong>Cm</strong><br><small class="name">Curium</small><br><span class="mass">(247)</span></td>
+    <td class="actinoid"><span class="num">97</span><br><strong>Bk</strong><br><small class="name">Berkelium</small><br><span class="mass">(247)</span></td>
+    <td class="actinoid"><span class="num">98</span><br><strong>Cf</strong><br><small class="name">Californium</small><br><span class="mass">(251)</span></td>
+    <td class="actinoid"><span class="num">99</span><br><strong>Es</strong><br><small class="name">Einsteinium</small><br><span class="mass">(252)</span></td>
+    <td class="actinoid"><span class="num">100</span><br><strong>Fm</strong><br><small class="name">Fermium</small><br><span class="mass">(257)</span></td>
+    <td class="actinoid"><span class="num">101</span><br><strong>Md</strong><br><small class="name">Mendelevium</small><br><span class="mass">(258)</span></td>
+    <td class="actinoid"><span class="num">102</span><br><strong>No</strong><br><small class="name">Nobelium</small><br><span class="mass">(259)</span></td>
+    <td class="actinoid"><span class="num">103</span><br><strong>Lr</strong><br><small class="name">Lawrencium</small><br><span class="mass">(266)</span></td>
+  </tr>
+</table>
+
+  <!-- Element Popup -->
+  <div id="element-modal" class="modal-overlay">
+    <div class="modal-card" id="modal-card">
+      <button class="modal-close" id="modal-close">&times;</button>
+
+      <div class="schematic-top">
+        <span id="modal-num" class="modal-num">Atomic Number: 80</span>
+
+        <div class="schematic-stage">
+          <div class="callout-group left-group">
+            <div class="node top-node">
+              <span class="node-label" data-i18n="lblReactivity">Reactivity</span>
+              <p id="modal-reactivity" class="node-text">Low • Resists oxidation</p>
+            </div>
+            <div class="node mid-node">
+              <span class="node-label" data-i18n="lblDensity">Density</span>
+              <p id="modal-density" class="node-text">13.53 g/cm³ (liquid)</p>
+            </div>
+            <div class="node btm-node">
+              <span class="node-label" data-i18n="lblThermal">Thermal</span>
+              <p id="modal-thermal" class="node-text">-38.8 °C / 356.7 °C</p>
+            </div>
+          </div>
+
+          <svg class="trace-svg left-svg" viewBox="0 0 70 140" fill="none">
+            <path class="draw-path branch-1" d="M 68,70 C 45,70 35,22 10,22" />
+            <polygon class="draw-arrow arrow-1" points="8,22 16,18 16,26" />
+
+            <path class="draw-path branch-2" d="M 68,70 L 10,70" />
+            <polygon class="draw-arrow arrow-2" points="8,70 16,66 16,74" />
+
+            <path class="draw-path branch-3" d="M 68,70 C 45,70 35,118 10,118" />
+            <polygon class="draw-arrow arrow-3" points="8,118 16,114 16,122" />
+          </svg>
+
+          <div class="center-col">
+            <h2 id="modal-symbol" class="modal-symbol">Hg</h2>
+            <h3 id="modal-name" class="modal-name">Mercury</h3>
+            <p id="modal-category" class="modal-category">TRANSITION</p>
+          </div>
+
+          <svg class="trace-svg right-svg" viewBox="0 0 70 140" fill="none">
+            <path class="draw-path branch-right" d="M 2,112 L 24,112 C 38,112 38,55 52,55 L 60,55" />
+            <polygon class="draw-arrow arrow-right" points="62,55 54,51 54,59" />
+          </svg>
+
+          <div class="callout-group right-group">
+            <div class="node right-node">
+              <span class="node-label" data-i18n="lblCategory">Classification</span>
+              <p id="modal-cat-desc" class="node-text">Category description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-divider"></div>
+
+      <div class="modal-body">
+        <h4 data-i18n="lblFacts">Top Applications &amp; Facts</h4>
+        <ul id="modal-facts"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div id="scroll-arrow" class="scroll-indicator">▼</div>
+
+  <script src="translations.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

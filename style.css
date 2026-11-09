@@ -1,0 +1,603 @@
+/* ========================================================
+   GLOBAL RESETS & CYBERPUNK THEME
+   ======================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(circle at 50% 20%, #0e1424 0%, #05070c 100%);
+  color: #f8fafc;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Changed from center to prevent pushing items up */
+  padding: 30px 0 60px 0;      /* Gives a solid 30px margin from the top edge */
+}
+
+/* ========================================================
+   SCI-FI SEARCH BAR & MODE TOGGLE
+   ======================================================== */
+
+.search-container {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0 20px 0;
+  position: sticky;
+  top: 15px;
+  z-index: 500;
+}
+
+.search-controls {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.search-box {
+  background: rgba(13, 17, 29, 0.6);
+  border: 1px solid #00d4ff;
+  color: #00d4ff;
+  padding: 10px 24px;
+  width: 260px;
+  border-radius: 30px;
+  font-family: monospace;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  outline: none;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.15);
+  transition: box-shadow 0.3s ease, width 0.3s ease;
+  text-transform: uppercase;
+}
+
+.search-box:focus {
+  width: 300px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.4);
+}
+
+.search-box::placeholder {
+  color: rgba(0, 212, 255, 0.4);
+}
+
+.search-toggle {
+  display: inline-flex;
+  background: rgba(13, 17, 29, 0.6);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  border-radius: 30px;
+  padding: 3px;
+  gap: 4px;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: rgba(0, 212, 255, 0.5);
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+  color: #00d4ff;
+}
+
+.toggle-btn.active {
+  background: rgba(0, 212, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid #00d4ff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+}
+/* ========================================================
+   EMPTY SEARCH STATE (NO RESULTS)
+   ======================================================== */
+.no-results-notice {
+  display: none;
+  margin-top: 10px;
+  color: #ff3366;
+  font-family: monospace;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 51, 102, 0.7), 0 0 20px rgba(255, 51, 102, 0.4);
+  animation: glitchShake 0.25s ease-in-out;
+}
+
+.no-results-notice.visible {
+  display: block;
+}
+
+@keyframes glitchShake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+}
+
+/* ========================================================
+   PERIODIC TABLE GRID (PERFECT SQUARES)
+   ======================================================== */
+
+table {
+  border-collapse: separate;
+  border-spacing: 4px;
+  table-layout: fixed;
+  margin: auto;
+  user-select: none;
+}
+
+/* ========================================================
+   PERIODIC TABLE GRID (RIGID PERFECT SQUARES)
+   ======================================================== */
+table {
+  border-collapse: separate;
+  border-spacing: 4px;
+  table-layout: fixed; /* Forces the table to obey our exact sizing */
+  margin: auto;
+  user-select: none;
+}
+
+td {
+  /* Bulletproof Perfect Square */
+  width: 4.2vw;
+  height: 4.2vw; 
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 65px;
+  max-height: 65px;
+  
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1.5px solid transparent;
+  background: rgba(13, 17, 29, 0.7);
+  backdrop-filter: blur(4px);
+  position: relative;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Live Search Filtering Effect */
+td.dimmed {
+  opacity: 0.1 !important;
+  filter: grayscale(100%);
+  pointer-events: none; 
+}
+
+/* Hover-zoom feedback */
+td:hover:not(.empty):not(.spacer) {
+  transform: scale(1.18);
+  z-index: 20;
+}
+
+/* Empty layout grid cells */
+.empty,
+.spacer {
+  border: none !important;
+  background: transparent !important;
+  cursor: default !important;
+  pointer-events: none;
+}
+
+/* ========================================================
+   CELL TYPOGRAPHY (TIGHTENED TO FIT THE SQUARE)
+   ======================================================== */
+.num {
+  font-size: 9px;
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  color: #94a3b8;
+  font-family: monospace;
+}
+
+strong {
+  font-size: 16px;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+  margin-top: 8px; /* Pushes the symbol down slightly away from the atomic number */
+  color: #ffffff;
+}
+
+.name {
+  font-size: 8px;
+  color: #cbd5e1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  margin-top: 3px;
+  padding: 0 2px;
+}
+
+.mass {
+  font-size: 7.5px;
+  color: #64748b;
+  display: block;
+  margin-top: 1px;
+}
+
+/* ========================================================
+   CHEMICAL FAMILIES (NEON COLOR CODING)
+   ======================================================== */
+
+.alkali { border-color: rgba(255, 51, 102, 0.45); }
+.alkali:hover { border-color: #ff3366; box-shadow: 0 0 16px #ff3366; }
+
+.alkaline { border-color: rgba(255, 153, 51, 0.45); }
+.alkaline:hover { border-color: #ff9933; box-shadow: 0 0 16px #ff9933; }
+
+.transition { border-color: rgba(0, 212, 255, 0.45); }
+.transition:hover { border-color: #00d4ff; box-shadow: 0 0 16px #00d4ff; }
+
+.post-transition { border-color: rgba(34, 197, 94, 0.45); }
+.post-transition:hover { border-color: #22c55e; box-shadow: 0 0 16px #22c55e; }
+
+.metalloid { border-color: rgba(168, 85, 247, 0.45); }
+.metalloid:hover { border-color: #a855f7; box-shadow: 0 0 16px #a855f7; }
+
+.reactive-nonmetal { border-color: rgba(59, 130, 246, 0.45); }
+.reactive-nonmetal:hover { border-color: #3b82f6; box-shadow: 0 0 16px #3b82f6; }
+
+.noble-gas { border-color: rgba(236, 72, 153, 0.45); }
+.noble-gas:hover { border-color: #ec4899; box-shadow: 0 0 16px #ec4899; }
+
+.lanthanoid { border-color: rgba(234, 179, 8, 0.45); }
+.lanthanoid:hover { border-color: #eab308; box-shadow: 0 0 16px #eab308; }
+
+.actinoid { border-color: rgba(217, 70, 239, 0.45); }
+.actinoid:hover { border-color: #d946ef; box-shadow: 0 0 16px #d946ef; }
+
+/* ========================================================
+   MODAL OVERLAY & POPUP CARD
+   ======================================================== */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(3, 4, 8, 0.84);
+  backdrop-filter: blur(9px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: #0d101a;
+  border: 1px solid #00d4ff;
+  border-radius: 12px;
+  width: 95%;
+  max-width: 680px;
+  padding: 22px 24px;
+  position: relative;
+  color: #ffffff;
+  box-shadow: 0 0 28px rgba(0, 212, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.04);
+  transform: scale(0.9);
+  transition: transform 0.25s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+.modal-close:hover {
+  color: #ff2a85;
+}
+
+/* ========================================================
+   SCHEMATIC STAGE & ANNOTATIONS
+   ======================================================== */
+
+.schematic-top {
+  text-align: center;
+}
+
+.modal-num {
+  font-size: 13px;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* 5-Column Flex Stage: [Left Nodes] [SVG] [Center] [SVG] [Right Node] */
+.schematic-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  min-height: 140px;
+  margin-top: 4px;
+}
+
+.center-col {
+  text-align: center;
+  min-width: 130px;
+  z-index: 2;
+}
+
+.modal-symbol {
+  font-size: 48px;
+  line-height: 1;
+  margin: 0;
+  color: #ffffff;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.6);
+}
+
+.modal-name {
+  font-size: 17px;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 2px 0 0;
+}
+
+.modal-category {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #00d4ff;
+  font-weight: bold;
+  margin: 2px 0 0;
+}
+
+/* ========================================================
+   SYNCHRONIZED SVG TRACE & TEXT REVEAL
+   ======================================================== */
+
+.trace-svg {
+  width: 55px;
+  height: 140px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Base line properties: 0.35s crisp draw time */
+.draw-path {
+  stroke: #00d4ff;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  fill: none;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  filter: drop-shadow(0 0 4px #00d4ff);
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.draw-arrow {
+  fill: #00d4ff;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px #00d4ff);
+  transition: opacity 0.1s ease;
+}
+
+/* Callout text initial state: slightly pushed inward toward the center */
+.node {
+  opacity: 0;
+  transition: opacity 0.2s ease-out, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.left-group .node {
+  transform: translateX(8px);
+}
+.right-group .node {
+  transform: translateX(-8px);
+}
+
+/* ========================================================
+   EXACT TIMED REVEAL
+   ======================================================== */
+
+/* 1. LEFT FORK: All 3 branches start drawing at 0.10s, finish at 0.45s */
+.modal-overlay.active .left-svg .draw-path {
+  transition-delay: 0.10s;
+  stroke-dashoffset: 0;
+}
+
+/* Arrowheads & Left Text trigger at exactly 0.45s (the moment the lines land) */
+.modal-overlay.active .left-svg .draw-arrow {
+  transition-delay: 0.45s;
+  opacity: 1;
+}
+.modal-overlay.active .left-group .node {
+  transition-delay: 0.45s;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 2. RIGHT STEP: Starts drawing at 0.20s, finishes at 0.55s */
+.modal-overlay.active .right-svg .draw-path {
+  transition-delay: 0.20s;
+  stroke-dashoffset: 0;
+}
+
+/* Right Arrowhead & Classification text trigger at exactly 0.55s */
+.modal-overlay.active .right-svg .draw-arrow {
+  transition-delay: 0.55s;
+  opacity: 1;
+}
+.modal-overlay.active .right-group .node {
+  transition-delay: 0.55s;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.draw-arrow {
+  fill: #00d4ff;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px #00d4ff);
+  transition: opacity 0.15s ease;
+}
+
+/* Staggered drawing trigger (fires in quick sequence under half a second) */
+.modal-overlay.active .branch-2 { transition-delay: 0.05s; stroke-dashoffset: 0; }
+.modal-overlay.active .arrow-2  { transition-delay: 0.35s; opacity: 1; }
+
+.modal-overlay.active .branch-1 { transition-delay: 0.12s; stroke-dashoffset: 0; }
+.modal-overlay.active .arrow-1  { transition-delay: 0.42s; opacity: 1; }
+
+.modal-overlay.active .branch-3 { transition-delay: 0.18s; stroke-dashoffset: 0; }
+.modal-overlay.active .arrow-3  { transition-delay: 0.48s; opacity: 1; }
+
+.modal-overlay.active .branch-right { transition-delay: 0.22s; stroke-dashoffset: 0; }
+.modal-overlay.active .arrow-right  { transition-delay: 0.52s; opacity: 1; }
+
+/* Callout Nodes: Reveal right behind the arrows */
+.node {
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modal-overlay.active .mid-node   { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.modal-overlay.active .top-node   { transition-delay: 0.42s; opacity: 1; transform: translateY(0); }
+.modal-overlay.active .btm-node   { transition-delay: 0.48s; opacity: 1; transform: translateY(0); }
+.modal-overlay.active .right-node { transition-delay: 0.52s; opacity: 1; transform: translateY(0); }
+
+.left-group {
+  text-align: right;
+}
+
+.right-group {
+  text-align: left;
+  justify-content: center;
+}
+
+/* Callout Nodes: Fade in smoothly as each arrow arrives */
+.node {
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.modal-overlay.active .mid-node   { transition-delay: 0.95s; opacity: 1; transform: translateY(0); }
+.modal-overlay.active .top-node   { transition-delay: 1.15s; opacity: 1; transform: translateY(0); }
+.modal-overlay.active .btm-node   { transition-delay: 1.35s; opacity: 1; transform: translateY(0); }
+.modal-overlay.active .right-node { transition-delay: 1.55s; opacity: 1; transform: translateY(0); }
+
+.node-label {
+  font-size: 9.5px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  display: block;
+  font-weight: 600;
+}
+
+.node-text {
+  font-size: 11px;
+  line-height: 1.35;
+  color: #cbd5e1;
+  margin: 1px 0 0;
+}
+
+.modal-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 14px 0 12px;
+}
+
+/* ========================================================
+   BOTTOM APPLICATIONS & FACTS SECTION
+   ======================================================== */
+
+.modal-body h4 {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #94a3b8;
+  margin: 0 0 8px;
+}
+
+.modal-body ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.modal-body li {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: #cbd5e1;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 16px;
+}
+
+.modal-body li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--bullet-color, #00d4ff);
+}
+/* ========================================================
+   SCROLL HUD INDICATOR
+   ======================================================== */
+.scroll-indicator {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #00d4ff;
+  font-size: 22px;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+  text-shadow: 0 0 10px #00d4ff, 0 0 20px #00d4ff;
+  animation: bounceArrow 1.5s infinite ease-in-out;
+}
+
+.scroll-indicator.visible {
+  opacity: 1;
+}
+
+.scroll-indicator::after {
+  content: "MORE MATCHES BELOW";
+  display: block;
+  font-size: 10px;
+  font-family: monospace;
+  letter-spacing: 2px;
+  margin-top: 4px;
+  color: #00d4ff;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
+}
+

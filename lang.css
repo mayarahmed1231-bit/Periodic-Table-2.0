@@ -1,0 +1,94 @@
+/* ========================================================
+   LANGUAGE BUTTON + ARABIC / RTL SUPPORT
+   Paste at the END of style.css (or link as a second stylesheet)
+   ======================================================== */
+
+.lang-opt {
+  background: transparent;
+  border: none;
+  color: rgba(0, 212, 255, 0.5);
+  font-family: 'Cairo', monospace;
+  font-size: 12px;
+  padding: 7px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-opt:hover {
+  color: #00d4ff;
+}
+
+.lang-opt.active {
+  background: rgba(0, 212, 255, 0.18);
+  color: #ffffff;
+  border: 1px solid #00d4ff;
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+}
+
+/* Scroll hint text now comes from JS so it can be translated */
+.scroll-indicator::after {
+  content: var(--more-text, "MORE MATCHES BELOW");
+}
+
+/* ---------- Arabic typography ---------- */
+html[lang="ar"] body,
+html[lang="ar"] .search-box,
+html[lang="ar"] .toggle-btn,
+html[lang="ar"] .no-results-notice,
+html[lang="ar"] .num,
+html[lang="ar"] .scroll-indicator::after {
+  font-family: 'Cairo', 'Tajawal', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Letter-spacing and uppercase break Arabic letter joining */
+html[lang="ar"] * {
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+}
+
+/* Keep element symbols in Latin letters, same look as before */
+html[lang="ar"] strong,
+html[lang="ar"] .modal-symbol {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ---------- Keep the table and diagram layout left-to-right ---------- */
+html[dir="rtl"] table,
+html[dir="rtl"] .schematic-stage,
+html[dir="rtl"] .search-controls {
+  direction: ltr;
+}
+
+/* Arabic names are a little longer, so use a slightly larger font in the cells */
+html[lang="ar"] .name {
+  font-size: 9px;
+}
+
+/* ---------- Popup text reads right-to-left ---------- */
+html[dir="rtl"] .node,
+html[dir="rtl"] .modal-body {
+  direction: rtl;
+}
+
+/* Callout alignment stays pointing toward the centre symbol */
+html[dir="rtl"] .left-group .node  { text-align: right; }
+html[dir="rtl"] .right-group .node { text-align: left; }
+
+html[lang="ar"] .node-text { font-size: 12.5px; line-height: 1.6; }
+html[lang="ar"] .node-label { font-size: 11px; }
+html[lang="ar"] .modal-body li { font-size: 14px; line-height: 1.7; }
+html[lang="ar"] .modal-body h4 { font-size: 13px; }
+html[lang="ar"] .modal-name { font-size: 19px; }
+html[lang="ar"] .modal-category { font-size: 13px; }
+
+/* Bullets flip to the right side in Arabic */
+html[dir="rtl"] .modal-body li {
+  padding-left: 0;
+  padding-right: 16px;
+}
+html[dir="rtl"] .modal-body li::before {
+  content: "◃";
+  left: auto;
+  right: 0;
+}
